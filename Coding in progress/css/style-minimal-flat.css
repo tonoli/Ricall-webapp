@@ -456,6 +456,32 @@ sup {
 /* ------------------------------------- */
 /* 2. Home ............................. */
 /* ------------------------------------- */
+
+.login {
+	float: right;;
+	margin-top: 50px;
+	margin-right: 65px;
+}
+
+.login a {
+	text-decoration: none;
+	color: white;
+	padding: 8px;
+	margin: 5px;
+	border: solid white 0.5px;
+	border-radius: 4px;
+	box-shadow: 4px 4px 5px rgba(136, 136, 136, 0.52);
+}
+
+.login a:hover {
+	background-color: #FFFFFF;
+	color:#ff3f6f;
+}
+
+.login li {
+	display: inline;
+}
+
 .action-btn {
   background: transparent;
   color: #FFFFFF;
@@ -608,7 +634,7 @@ sup {
 .brand-logo {
   position: absolute;
   left: 10%;
-  top: 5%;
+  top: 2%;
   max-width: 100px;
 }
 
@@ -654,9 +680,8 @@ sup {
 /* 3. More informations ................ */
 /* ------------------------------------- */
 #right-side {
-  background: #f2f3f7;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
   -webkit-transform: translate3d(100%, 0, 0);
   -moz-transform: translate3d(100%, 0, 0);
   -o-transform: translate3d(100%, 0, 0);
@@ -664,6 +689,7 @@ sup {
   transform: translate3d(100%, 0, 0);
   top: 0;
   width: 50%;
+  height: 150px;
   -webkit-transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
   -moz-transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
   -ms-transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
@@ -906,6 +932,7 @@ sup {
 
 .mCSB_scrollTools {
   /* Scrollbar */
+  display: none;
   position: absolute;
   width: 5px;
   height: auto;

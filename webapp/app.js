@@ -2,7 +2,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var exphbs = require('express-handlebars');
 var expressValidator = require('express-validator');
 var flash = require('connect-flash');
 var session = require('express-session');
@@ -23,12 +22,13 @@ var users = require('./routes/users');
 var app = express();
 
 // View Engine
-app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
 app.get('/' function (req, res){
     res.sendFile(__dirname + '/index.html')
 
-})
+});
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));

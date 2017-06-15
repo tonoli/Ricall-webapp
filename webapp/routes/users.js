@@ -33,7 +33,7 @@ passport.authenticate('local', {successRedirect:'/dashboard', failureRedirect:'/
 
 // Google
 router.get('/google',
-		passport.authenticate('google', {scope: ['profile', 'email']}));
+		passport.authenticate('google', {scope: ['profile', 'email', 'https://www.googleapis.com/auth/calendar']}));
 
 router.get('/google/callback',
 		passport.authenticate('google', { successRedirect: '/dashboard',

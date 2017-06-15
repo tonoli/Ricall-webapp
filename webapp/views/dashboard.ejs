@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <title>Ricall me</title>
@@ -7,17 +7,271 @@
 </head>
 <body>
   <div id="todo-table">
-    <h2> Ricall.me app </h2>
+    <h1 class="dash-title">Dashboard</h1>
   <form>
     <input type="text" name="item" placeholder="Add a item" required>
-    <button type="submit">Add item</button>
+    <input type="text" name="item-time" placeholder="Ricall Time" required>
+    <button type="submit">Add Event</button>
+    
   </form>
+  <h2 class="list-title">Ricall List</h2>
   <ul>
     <% for(var i=0; i < todos.length; i++){ %>
       <li><%=todos[i].item %></li>
+      <button class="del-btn" type="submit" value="remove" name="op">Remove</button>
     <% }; %>
   </ul>
 </div>
   <script src="/js/todo.js" type="text/javascript"></script>
 </body>
+</html>
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <title>Monster Admin Template - The Most Complete & Trusted Bootstrap 4 Admin Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="/css/blue.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li>
+                            <a href="/dashboard" class="waves-effect"><i class="fa fa-clock-o m-r-10" aria-hidden="true"></i>Home</a>
+                        </li>
+                        <li>
+                            <a href="pages-profile.html" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
+                        </li>
+            
+                    </ul>
+                   
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-6 col-8 align-self-center">
+                        <h3 id="dash-title" class="text-themecolor m-b-0 m-t-0">Dashboard</h3>
+                       <!--  <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol> -->
+                    </div>
+                    <div class="col-md-6 col-4 align-self-center">
+                        <a href="https://wrappixel.com/templates/monsteradmin/" class="btn pull-right hidden-sm-down btn-success">Log Out</a>
+                    </div>
+                </div>
+             <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-block">
+                              <input type="text" name="item" placeholder="New Ricall" required>
+                                <input type="text" name="item" placeholder="Ricall Time" required>
+                              <button class="add-btn" type="submit">Add Ricall</button> 
+
+                        </div> 
+                    </div>
+                 </div>
+             </div>      
+                    
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-block">
+                                <select class="custom-select pull-right">
+                                    <option selected>June</option>
+                                    <option value="1">July</option>
+                                    <option value="2">August</option>
+                                    <option value="3">September</option>
+                                </select>
+                                <h4 class="card-title">RICALLS</h4>
+                                <div class="table-responsive m-t-40">
+                                    <table class="table stylish-table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Urgency</th>
+                                                <th>Description</th>
+                                                <th>Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <td></td>
+                                                        <h6></h6>
+
+                                                        <!--  <% for(var i=0; i < todos.length; i++){ %>
+                                                            <td><h1><%=todos[i].urgency %></h1></td>
+                                                         <% }; %>
+                                                         <% for(var i=0; i < todos.length; i++){ %>
+                                                            <td><h1><%=todos[i].description %></h1></td>
+                                                         <% }; %>
+                                                         <% for(var i=0; i < todos.length; i++){ %>
+                                                            <td><h1><%=todos[i].time %></h1></td>
+                                                         <% }; %>
+                                                         <% for(var i=0; i < todos.length; i++){ %>
+                                                            <button class="del-btn" type="submit">Remove</button>
+                                                         <% }; %> -->
+                                                        
+                                                    </td>
+                                                </tr>
+
+                                          <!--   <tr>
+                                                <td style="width:50px;"><span class="round">S</span></td>
+                                                <td>
+                                                    <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small></td>
+                                                <td>Elite Admin</td>
+                                                <td>$3.9K</td>
+                                            </tr>
+                                            <tr class="active">
+                                                <td><span class="round"><img src="../assets/images/users/2.jpg" alt="user" width="50" /></span></td>
+                                                <td>
+                                                    <h6>Andrew</h6><small class="text-muted">Project Manager</small></td>
+                                                <td>Real Homes</td>
+                                                <td>$23.9K</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="round round-success">B</span></td>
+                                                <td>
+                                                    <h6>Bhavesh patel</h6><small class="text-muted">Developer</small></td>
+                                                <td>MedicalPro Theme</td>
+                                                <td>$12.9K</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="round round-primary">N</span></td>
+                                                <td>
+                                                    <h6>Nirav Joshi</h6><small class="text-muted">Frontend Eng</small></td>
+                                                <td>Elite Admin</td>
+                                                <td>$10.9K</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="round round-warning">M</span></td>
+                                                <td>
+                                                    <h6>Micheal Doe</h6><small class="text-muted">Content Writer</small></td>
+                                                <td>Helping Hands</td>
+                                                <td>$12.9K</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="round round-danger">N</span></td>
+                                                <td>
+                                                    <h6>Johnathan</h6><small class="text-muted">Graphic</small></td>
+                                                <td>Digital Agency</td>
+                                                <td>$2.6K</td>
+                                            </tr> -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row -->
+                <!-- Row -->
+               
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center">
+                © 2017 Ricall
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="/js/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="/js/tether.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="/js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="/js/sticky-kit.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="/js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!-- Flot Charts JavaScript -->
+    <script src="/js/jquery.flot.js"></script>
+    <script src="/js/jquery.flot.tooltip.min.js"></script>
+    <script src="/js/flot-data.js"></script>
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="/js/jQuery.style.switcher.js"></script>
+</body>
+
 </html>

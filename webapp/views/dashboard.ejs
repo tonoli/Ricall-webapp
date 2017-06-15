@@ -143,11 +143,11 @@
                                         </thead>
                                         <tbody>
                                               <% for(var i=0; i < rivent.length; i++){ %>
-                                                <tr>
+                                                <tr id ="list" class=".col-md-9 .col-md-push-3">
                                                     <td><i class="fa fa-circle" id="<%=rivent[i].urgency%>"></i></td>
-                                                    <td><p><%=rivent[i].title%></p></td>
-                                                    <td><p><%=rivent[i].ricall_time%></p></td>
-                                                    <td><button class="del-btn" id="<%=rivent[i].event_id%>" type="submit">Delete</button></td>
+                                                    <td><p id="lst-desc" class="pull-right"><%=rivent[i].title%></p></td>
+                                                    <td><p id="lst-time" class="pull-right"><%=rivent[i].ricall_time%></p></td>
+                                                    <td><button class="del-btn " id="<%=rivent[i].event_id%>" type="submit">Delete</button></td>
                                                 </tr>
                                                 <%};%>
 

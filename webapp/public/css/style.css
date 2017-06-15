@@ -74,15 +74,22 @@ button.add-btn {
 
 button.del-btn{
     padding: 10px;
-    width: 37%;
-    float: left;
+    width: 70px;
     background: #00c4cc;
     border: 0;
     box-sizing: border-box;
-    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+    /*box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);*/
     color: #fff;
     cursor: pointer;
-    float: right;
+    border-radius: 5px;
+    position: absolute;
+    margin-left: 110px;
+} button.del-btn:hover{ color: #ccc; background-color: #ff3f6f;}
+
+tr#list{
+
+    margin-right: 90px; 
+    margin-bottom: 50px;
 }
 /*
 ul{
@@ -131,4 +138,11 @@ h2.list-title{
   font-weight: normal;
 }
 
-*/
+li#lst-dec{
+
+}
+
+li#lst-time{
+    /*float: right;*/
+    width: 20px;
+}

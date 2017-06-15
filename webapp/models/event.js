@@ -1,23 +1,16 @@
 var mongoose = require('mongoose');
 
 // Event Schema
-var EventSchema = mongoose.Schema({
-	eventname: {
-		type: String,
-		index:true
-	},
-	name: {
-		type: String
-	}
+var TodoSchema = mongoose.Schema({
+  item : String
 });
 
 // Event Modules
-var Event = module.exports = mongoose.model('Event', EventSchema);
+var Todo = module.exports = mongoose.model('Todo', TodoSchema);
+
 
 module.exports.createEvent = function(newEvent, callback){
 	        newEvent.save(callback);
-	    });
-	});
 }
 
 module.exports.getEventByEventname = function(eventname, callback){

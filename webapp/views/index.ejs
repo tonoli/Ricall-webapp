@@ -40,8 +40,14 @@
 			<section id="right-side">
 		<div class="login">
 			<ul>
-			<li><a href="dashboard.ricall.me/login">Register</a></li>
-			<li><a href="dashboard.ricall.me/register">Log in </a></li>
+			<% if(user){%>
+			<li><a href="/dashboard">Dashboard</a></li>
+			<li><a href="/users/logout">Log out</a></li>
+			<%}
+			else{%>
+			<li><a href="/users/register">Register</a></li>
+			<li><a href="/users/login">Log in</a></li>
+			<%}%>
 		</ul>
 	</section>
 		<!-- END - Home/Right Part -->

@@ -3,12 +3,12 @@
 
 <head>
 	<meta charset='utf-8'>
-	<title>Arty | Register</title>
+	<title>Ricall | Register</title>
 
 	<!-- Links -->
-	<link rel="stylesheet" type="text/css" href="css/login.css">
-	<link type="text/javascript" href="js/script.js">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
+	<link type="text/javascript" href="../js/script.js">
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Lato|Raleway|Roboto" rel="stylesheet">
 </head>
@@ -18,16 +18,35 @@
 	</div>
 	<div class="login-page">
 	  <div class="form">
-	    <form class="login-form" method="POST" enctype="multipart/form-data">
-	      <input type="text" placeholder="First Name" name="firstname" />
-		  <input type="text" placeholder="Last Name" name="lastname" />
-	      <input type="password" placeholder="Password" name="password"/>
-		  <input type="password" placeholder="Repeat password"/>
-		  <input type="text" placeholder="Email address" name="email"/>
-		  <input type="text" placeholder="Phone number" name="phone"/>
-	      <button name="register" value="create_account">create</button>
-	      <p class="message">Already registered? <a href="/login">Sign In</a></p>
-	    </form>
+      <%if(errors){
+        for(var i=0; i < errors.length; i++){%>
+          <div class="alert alert-danger"><%=msg%></div>
+        <%}
+      }%>
+      <form method="post" action="/users/register">
+         <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="Name" name="name">
+        </div>
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" class="form-control" placeholder="Username" name="username">
+        </div>
+         <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" placeholder="Email" name="email">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" placeholder="Password" name="password">
+        </div>
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" class="form-control" placeholder="Password" name="password2">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+        <p class="message">Already registered? <a href="login">Sign In</a></p>
+      </form>
 	  </div>
 	</div>
 </body>

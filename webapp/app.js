@@ -15,7 +15,7 @@ mongoose.connect('mongodb://ricallme:ricall@ds123182.mlab.com:23182/ricallmedb')
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
-/* HERE SHOULD BE DESHBOARD MODULE */
+var dashboard = require('./routes/dashboard');
 var users = require('./routes/users');
 
 // Init App
@@ -25,18 +25,14 @@ var app = express();
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/' function (req, res){
-    res.sendFile(__dirname + '/index.html')
-
-});
+// BodyParser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req, res, next){
-    res.setHeader('Content-Type', 'text/plain');
-    res.send(404, 'Page introuvable !');
-});
 
 // Express Session
 app.use(session({
@@ -80,7 +76,13 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', routes);
+app.use('/dashboard', dashboard);
 app.use('/users', users);
+
+// 404 ERROR
+app.use(function(req, res, next){
+    res.status(404).render('404');
+});
 
 // Set Port
 app.set('port', (process.env.PORT || 3000));

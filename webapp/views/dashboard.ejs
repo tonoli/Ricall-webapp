@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Monster Admin Template - The Most Complete & Trusted Bootstrap 4 Admin Template</title>
+    <title>Ricall | Dashboard</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -27,18 +27,40 @@
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-    </div>
+  <header class="topbar">
+            <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+
+                    <a class="navbar-brand" href="/">
+                        <!-- Logo icon -->
+                        <b>
+                            <img class="logo" src="/img/logo.png" alt="homepage"/>
+                        </b>
+                        <!--End Logo icon -->
+                    </a>
+
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="dashboard/profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/img/users/1.jpg" alt="user" class="profile-pic m-r-5" />Tomas</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-        
+
         <aside class="left-sidebar">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
@@ -51,9 +73,9 @@
                         <li>
                             <a href="pages-profile.html" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
                         </li>
-            
+
                     </ul>
-                   
+
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -82,7 +104,7 @@
                         </ol> -->
                     </div>
                     <div class="col-md-6 col-4 align-self-center">
-                        <a href="https://wrappixel.com/templates/monsteradmin/" class="btn pull-right hidden-sm-down btn-success">Log Out</a>
+                        <a href="/users/logout" class="btn pull-right hidden-sm-down btn-success">Log Out</a>
                     </div>
                 </div>
              <div class="row">
@@ -91,13 +113,13 @@
                         <div class="card-block">
                               <input type="text" name="item" placeholder="New Ricall" required>
                                 <input type="text" name="item" placeholder="Ricall Time" required>
-                              <button class="add-btn" type="submit">Add Ricall</button> 
+                              <button class="add-btn" type="submit">Add Ricall</button>
 
-                        </div> 
+                        </div>
                     </div>
                  </div>
-             </div>      
-                    
+             </div>
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
@@ -116,29 +138,18 @@
                                                 <th colspan="2">Urgency</th>
                                                 <th>Description</th>
                                                 <th>Time</th>
+                                                <th>Remove</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                              <% for(var i=0; i < rivent.length; i++){ %>
                                                 <tr>
-                                                    <td>
-                                                        <td></td>
-                                                        <h6></h6>
-
-                                                         <% for(var i=0; i < rivent.length; i++){ %>
-                                                            <td><h1><%=rivent[i].urgency %></h1></td>
-                                                         <% }; %>
-                                                         <% for(var i=0; i < rivent.length; i++){ %>
-                                                            <td><h1><%=rivent[i].description %></h1></td>
-                                                         <% }; %>
-                                                         <% for(var i=0; i < rivent.length; i++){ %>
-                                                            <td><h1><%=rivent[i].time %></h1></td>
-                                                         <% }; %>
-                                                         <% for(var i=0; i < rivent.length; i++){ %>
-                                                        <td><button class="del-btn" type="submit">Remove</button></td>
-                                                         <% }; %>
-                                                        
-                                                    </td>
+                                                    <td><i class="fa fa-circle" id="<%=rivent[i].urgency%>"></i></td>
+                                                    <td><p><%=rivent[i].title%></p></td>
+                                                    <td><p><%=rivent[i].ricall_time%></p></td>
+                                                    <td><button class="del-btn" id="<%=rivent[i].event_id%>" type="submit">Delete</button></td>
                                                 </tr>
+                                                <%};%>
 
                                           <!--   <tr>
                                                 <td style="width:50px;"><span class="round">S</span></td>
@@ -191,24 +202,13 @@
                 </div>
                 <!-- Row -->
                 <!-- Row -->
-               
+
                 <!-- Row -->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center">
-                © 2017 Ricall
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
+
         </div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
@@ -245,6 +245,7 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="/js/jQuery.style.switcher.js"></script>
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="399989e7-1d1e-45ae-a62c-cf77e9ac4ee1";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.im/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 
 </html>

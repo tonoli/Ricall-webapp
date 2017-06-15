@@ -35,18 +35,19 @@
   </div>
 	<div class="login-page">
 	  <div class="form">
+			<h2> Connection </h2>
 	    <form method="post" action="/users/login" class="login-form">
+				<p class="message">Not registered? <a href="register">Create an account</a></p></br>
         <div class="form-group">
-          <label>Username</label>
           <input type="text" class="form-control" name="username" placeholder="Username">
         </div>
         <div class="form-group">
-          <label>Password</label>
           <input type="password" class="form-control" name="password" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-	      <p class="message">Not registered? <a href="register">Create an account</a></p>
 	    </form>
+		</br>
+			<a href="/users/google"><button type="google" class="btn btn-default"><i class="fa fa-google"></i>  Connect with google</button></a>
 	  </div>
 	</div>
 </body>

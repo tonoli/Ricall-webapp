@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var Todo = require('../models/event');
+var Rivent = require('../models/rivent');
 
 // Connect to the DB
 mongoose.connect('mongodb://ricallme:ricall@ds123182.mlab.com:23182/ricallmedb');
@@ -13,21 +13,22 @@ var urlencodedparse = (bodyParser.urlencoded({ extended: false }));
 
 // Get Dashboard
 router.get('/', ensureAuthenticated, function(req, res){
-  Todo.find({}, function(err,data){
+  Rivent.find({}, function(err,data){
     if (err) throw err;
-    res.render('dashboard', {todos : data} );
+    res.render('dashboard', {rivent : data} );
   });
 });
 
 router.post('/', ensureAuthenticated, urlencodedparse,  function (req, res){
-  var newTodo = Todo(req.body).save(function(err, data){
+  var newRivent = Rivent(req.body).save(function(err, data){
     if (err) throw err;
     res.json(data);
   });
 });
 
-router.delete('/:item', ensureAuthenticated, function (req, res){
-  Todo.find({item: req.params.item.replace(/\-/g, " ")}).remove(function (err, data){
+
+router.delete('/:event_id', ensureAuthenticated, function (req, res){
+  Rivent.find({event_id: req.params.event_id}).remove(function (err, data){
     if (err) throw err;
     res.json(data);
     });

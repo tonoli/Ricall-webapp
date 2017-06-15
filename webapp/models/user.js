@@ -3,19 +3,25 @@ var bcrypt = require('bcryptjs');
 
 // User Schema
 var UserSchema = mongoose.Schema({
-	username: {
-		type: String,
-		index:true
-	},
-	password: {
-		type: String
-	},
-	email: {
-		type: String
-	},
-	name: {
-		type: String
+	local: {
+			username: {
+				type: String,
+				index:true
+			},
+			password: String,
+			email: String,
+		},
+	google: {
+		id : String,
+		username : {
+			type: String,
+			index: true
+		},
+		token : String,
+		email : String,
+		name : String
 	}
+
 });
 
 // User Modules
@@ -23,15 +29,15 @@ var User = module.exports = mongoose.model('User', UserSchema);
 
 module.exports.createUser = function(newUser, callback){
 	bcrypt.genSalt(10, function(err, salt) {
-	    bcrypt.hash(newUser.password, salt, function(err, hash) {
-	        newUser.password = hash;
+	    bcrypt.hash(newUser.local.password, salt, function(err, hash) {
+	        newUser.local.password = hash;
 	        newUser.save(callback);
 	    });
 	});
 }
 
 module.exports.getUserByUsername = function(username, callback){
-	var query = {username: username};
+	var query = {'local.username': username};
 	User.findOne(query, callback);
 }
 

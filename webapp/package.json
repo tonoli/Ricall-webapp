@@ -20,9 +20,11 @@
     "express-messages": "*",
     "express-session": "*",
     "express-validator": "*",
+    "google-calendar": "^1.3.2",
     "mongodb": "*",
     "mongoose": "*",
     "passport": "*",
+    "passport-google-oauth": "^1.0.0",
     "passport-http": "*",
     "passport-local": "*"
   }

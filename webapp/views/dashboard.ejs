@@ -13,8 +13,8 @@
     <button type="submit">Add item</button>
   </form>
   <ul>
-    <% for(var i=0; i < todos.length; i++){ %>
-      <li><%=todos[i].item %></li>
+    <% for(var i=0; i < rivent.length; i++){ %>
+      <li><%=rivent[i].event_name%> <button class="del-btn" id='<%=rivent[i].event_id%>'>Delete</button></li>
     <% }; %>
   </ul>
 </div>

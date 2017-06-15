@@ -2,13 +2,19 @@ $(document).ready(function(){
 
   $('form').on('submit', function(){
 
-      var item = $('form input');
-      var todo = {item: item.val()};
+      var event_name = $('form event_name');
+      var ricall_time = $('form ricall_time');
+      var urgency = $('form urgency');
+      var rivent = {
+        event_name: event_name.val(),
+        ricall_time : ricall_time.val(),
+        urgency : urgency.val()
+      };
 
       $.ajax({
         type: 'POST',
-        url: '/todo',
-        data: todo,
+        url: '/dashboard',
+        data: rivent,
         success: function(data){
           //do something with the data via front-end framework
           location.reload();
@@ -19,11 +25,11 @@ $(document).ready(function(){
 
   });
 
-  $('li').on('click', function(){
-      var item = $(this).text().replace(/ /g, "-");
+  $( ".del-btn").on('click', function(){
+      var event_id = $(this).attr('id');
       $.ajax({
         type: 'DELETE',
-        url: '/todo/' + item,
+        url: '/dashboard/' + event_id,
         success: function(data){
           //do something with the data via front-end framework
           location.reload();

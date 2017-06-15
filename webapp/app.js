@@ -7,6 +7,8 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var gcal = require('google-calendar');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
@@ -36,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Express Session
 app.use(session({
-    secret: 'secret',
+    secret: 'We are 42',
     saveUninitialized: true,
     resave: true
 }));

@@ -36,6 +36,14 @@ module.exports.createUser = function(newUser, callback){
 	});
 }
 
+module.exports.getUserByEmail = function(email, callback){
+
+	var query = {
+		$or:[ {'local.email': email}, {'google.email': email}]
+	};
+	User.findOne(query, callback);
+}
+
 module.exports.getUserByUsername = function(username, callback){
 	var query = {'local.username': username};
 	User.findOne(query, callback);

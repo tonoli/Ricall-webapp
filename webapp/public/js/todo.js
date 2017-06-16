@@ -3,10 +3,13 @@ $(document).ready(function(){
   $('form').on('submit', function(){
 
       var event_name = $('form event_name');
-      var ricall_time = $('form ricall_time');
+      var title = $('form input title');
+      var ricall_time = $('form input ricall_time');
       var urgency = $('form urgency');
+      //var event_id = "1"
       var rivent = {
-        event_name: event_name.val(),
+        //event_id : event_id.val();
+        title: title.val(),
         ricall_time : ricall_time.val(),
         urgency : urgency.val()
       };
@@ -29,7 +32,7 @@ $(document).ready(function(){
       var event_id = $(this).attr('id');
       $.ajax({
         type: 'DELETE',
-        url: '/dashboard/' + event_id,
+        url: '/dashboard/' + event_id, 
         success: function(data){
           //do something with the data via front-end framework
           location.reload();
@@ -38,3 +41,4 @@ $(document).ready(function(){
   });
 
 });
+

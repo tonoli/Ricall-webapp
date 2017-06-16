@@ -3,6 +3,8 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Rivent = require('../models/rivent');
+var User = require('../models/user');
+var calendar = require('../routes/calendar');
 
 // Connect to the DB
 mongoose.connect('mongodb://ricallme:ricall@ds123182.mlab.com:23182/ricallmedb');
@@ -13,6 +15,14 @@ var urlencodedparse = (bodyParser.urlencoded({ extended: false }));
 
 // Get Dashboard
 router.get('/', ensureAuthenticated, function(req, res){
+
+//Storing user email in session
+	User.getUserById(req.session.passport.user, function(err, data){
+		if (err) throw err;
+		req.session.email = data.google.email;
+		req.session.token = data.google.token;
+	});
+
   Rivent.find({}, function(err,data){
     if (err) throw err;
     res.render('dashboard', {rivent : data} );
@@ -34,6 +44,10 @@ router.delete('/:event_id', ensureAuthenticated, function (req, res){
     });
 });
 
+router.get('/auth', ensureAuthenticated, function(req, res){
+	res.send('OH.. I DON\'T RICALL YOU GAVE US PERMISSION FOR GOOGLE CALENDAR');
+})
+
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
@@ -42,5 +56,8 @@ function ensureAuthenticated(req, res, next){
 		res.redirect('/users/login');
 	}
 }
+
+// Routing to calendar
+router.use('/calendar', calendar);
 
 module.exports = router;

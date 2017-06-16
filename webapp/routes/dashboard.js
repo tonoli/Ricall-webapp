@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var Rivent = require('../models/rivent');
 var User = require('../models/user');
 var calendar = require('../routes/calendar');
+var gcal = require('google-calendar');
 
 // Connect to the DB
 mongoose.connect('mongodb://ricallme:ricall@ds123182.mlab.com:23182/ricallmedb');
@@ -21,6 +22,7 @@ router.get('/', ensureAuthenticated, function(req, res){
 		if (err) throw err;
 		req.session.email = data.google.email;
 		req.session.token = data.google.token;
+		console.log(req.session.token);
 	});
 
   Rivent.find({}, function(err,data){
@@ -30,8 +32,12 @@ router.get('/', ensureAuthenticated, function(req, res){
 });
 
 router.post('/', ensureAuthenticated, urlencodedparse,  function (req, res){
+
   var newRivent = Rivent(req.body).save(function(err, data){
     if (err) throw err;
+	var title = data.title;
+	var ricall_time = data.ricall_time;
+
     res.json(data);
   });
 });
@@ -57,7 +63,8 @@ function ensureAuthenticated(req, res, next){
 	}
 }
 
-// Routing to calendar
+//Calendar
 router.use('/calendar', calendar);
+
 
 module.exports = router;

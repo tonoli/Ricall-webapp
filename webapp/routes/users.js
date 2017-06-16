@@ -36,8 +36,7 @@ router.get('/google',
 		passport.authenticate('google', {scope: ['profile', 'email', 'https://www.googleapis.com/auth/calendar']}));
 
 router.get('/google/callback',
-		passport.authenticate('google', { successRedirect: '/dashboard',
-																			failureRedirect: '/login'})
+		passport.authenticate('google', { successRedirect: '/dashboard', failureRedirect: '/login'})
 	);
 
 // Logout Process
@@ -136,11 +135,14 @@ passport.use(new LocalStrategy(
 	  },
 		function(accessToken, refreshToken, profile, done) {
 	    	process.nextTick(function(){
-	    		User.findOne({'google.id': profile.id}, function(err, user){
+	    		User.findOneAndUpdate({'google.id': profile.id}, {$set:{'google.token': accessToken}}, {new : true}, function(err, user){
 	    			if(err)
 	    				return done(err);
-	    			if(user)
-	    				return done(null, user);
+	    			if(user){
+						console.log(accessToken);
+						return done(null, user);
+					}
+
 	    			else {
 	    				var newUser = new User();
 	    				newUser.google.id = profile.id;

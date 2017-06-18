@@ -32,7 +32,7 @@ $(document).ready(function(){
       var event_id = $(this).attr('id');
       $.ajax({
         type: 'DELETE',
-        url: '/dashboard/' + event_id, 
+        url: '/dashboard/' + event_id,
         success: function(data){
           //do something with the data via front-end framework
           location.reload();
@@ -42,3 +42,17 @@ $(document).ready(function(){
 
 });
 
+$(function(){
+        $('#datepicker').datepicker({
+
+            inline: true,
+            showOtherMonths: true,
+            dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+            altField: "#date",
+        });
+});
+
+$(document).ready( function() {
+  $("#datepicker").datepicker("show");
+
+});

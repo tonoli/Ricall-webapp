@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var RiventSchema = mongoose.Schema({
   'user_id': String,
   'event_id': String,
-  'ricall_time': String,
+  'ricall_time': Object,
   'leave_time': String,
   'start_date': String,
   'end_date': String,
@@ -16,17 +16,12 @@ var RiventSchema = mongoose.Schema({
   'category_id': String,
   'urgency': String,
   'reminded': Boolean,
-  'confirmation': Boolean,
+  'confirmation': String,
   'active' : Boolean
 });
 
 // Event Modules
 var Rivent = module.exports = mongoose.model('Rivent', RiventSchema);
-
-
-module.exports.createRivent = function(newRivent, callback){
-	        newRivent.save(callback);
-}
 
 module.exports.getRiventByRiventname = function(eventname, callback){
 	var query = {title: eventname};

@@ -16,7 +16,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 	<!-- Bootstrap Core CSS -->
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/css/bootstrap-datepicker.css" rel="stylesheet">
+	<link href="/css/bootstrap-datepicker3.css" rel="stylesheet">
 	<link type="text/css" href="/css/bootstrap-timepicker.min.css" />
 
 	<!-- Custom CSS -->
@@ -30,7 +30,7 @@
 				<a class="navbar-brand" href="/"><img class="logo" src="/img/logo_notext.png" alt="logo" title="home"/></a>
 				<ul class="navbar-nav">
 					<li class="nav-item dropdown nobullet floatRight">
-						<a class="nav-link dropdown-toggle">
+						<a class="nav-link dropdown-toggle" href="/users/logout">
 							<img src="/img/users/1.jpg" alt="user" class="profile-pic img-circle" /><%=user.name%>
 						</a>
 					</li>
@@ -46,7 +46,7 @@
 				</div>
 				<div class="row adder">
 					<form method="post">
-						<input type="text" class="addText" placeholder="TITLE">
+						<input type="text" name="title" class="addText" placeholder="TITLE">
 						<div class="date hide">
 							<input id="date" name="date" placeholder="DATE" type="text" autocomplete="off"/>
 						</div>
@@ -55,6 +55,14 @@
 						</div>
 						<button type='button' class="addBtn" id="date-btn">DATE</button>
 						<button type='button' class="addBtn" id="category-btn">CATEGORY</button>
+						<div class="category hide">
+							<select name="category_id">
+								<option value="0">Medication</option>
+								<option value="1">Appointment</option>
+								<option value="2">Ricall</option>
+								<option value="3">Other</option>
+							</select>
+						</div>
 						<button type='submit' class="addBtn" id="add-btn"><i class="fa fa-plus" aria-hidden="true"></i></button>
 					</form>
 				</div>
@@ -85,34 +93,34 @@
 
 	</div>
 	<!-- Include jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="/js/bootstrap-timepicker.min.js"></script>
+<script src="/js/todo.js"></script>
 <!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#datepicker").datepicker("show");
 
-<script>
-    $(document).ready(function(){
-		$('#date-btn').on('click', function(){
-			$('#date-btn').addClass('hide');
-			$('.date').removeClass('hide');
-			$('.time').removeClass('hide');
-		});
-        var date_input=$('input[name="date"]'); //our date input has the name "date"
-        date_input.datepicker({
-            format: 'mm/dd/yyyy',
-            container: '.adder',
-            todayHighlight: true,
-            autoclose: true,
-        });
-		$('#time').timepicker();
-    })
-</script>
-	<script src="/js/jquery.min.js"></script>
-	<script src="/js/todo.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	<script src="/js/bootstrap-datepicker.js"></script>
-	<script type="text/javascript" src="/js/bootstrap-timepicker.min.js"></script>
+			$('#date-btn').on('click', function(){
+				$('#date-btn').addClass('hide');
+				$('.date').removeClass('hide');
+				$('.time').removeClass('hide');
+
+			});
+			$('#category-btn').on('click', function(){
+				$('.category').removeClass('hide');
+			});
+
+			$('#date').datepicker({
+				orientation: "auto",
+				autoclose: true,
+				todayHighlight: true
+			});
+			$('#time').timepicker();
+	});
+	</script>
 	<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="399989e7-1d1e-45ae-a62c-cf77e9ac4ee1";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.im/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 

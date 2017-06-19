@@ -240,6 +240,11 @@ body {
 	color: #fff;
 }
 
+.category{
+	float: right;
+}
+
+
 /* --------------  DISPLAY RIVENT --------------*/
 
 .displayRivent{

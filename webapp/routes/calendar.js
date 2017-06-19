@@ -76,8 +76,8 @@ router.all('/add', function(req, res){
 	var calendarId  = req.session.email;
 
 	var gcalrivent = {
-		'summary': 'We did it!',
-		'location': '800 Howard St., San Francisco, CA 94103',
+		'summary': 'This is just a test!',
+		'location': '8 Rue du Delta, Paris, 75009',
 		'start': {
 			'dateTime': '2017-06-18T18:00:00-07:00',
 			'timeZone': 'America/Los_Angeles',

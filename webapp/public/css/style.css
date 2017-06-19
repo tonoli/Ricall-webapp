@@ -1,7 +1,7 @@
 
 
 @import url(font-awesome.min.css);
-@import url(bootstrap.min.css);
+
 
 /* Global Defaults */
  html, body {
@@ -76,21 +76,24 @@
      outline: none;
  }
  /* Common Classes */
- .clear { clear: both; }
- .floatLeft { float: left; }
- .floatRight { float: right; }
- .textLeft { text-align: left; }
- .textRight { text-align: right; }
- .textCenter { text-align: center; }
- .textJustify { text-align: justify; }
- .blockCenter { display: block; margin-left: auto; margin-right: auto; } /* remember to set width */
- .bold { font-weight: bold; }
- .italic { font-style: italic; }
- .underline { text-decoration: underline; }
- .noindent { margin-left: 0; padding-left: 0; }
- .nomargin { margin: 0; }
- .nopadding { padding: 0; }
- .nobullet { list-style: none; list-style-image: none; }
+.hide{
+	display: none;
+}
+.clear { clear: both; }
+.floatLeft { float: left; }
+.floatRight { float: right; }
+.textLeft { text-align: left; }
+.textRight { text-align: right; }
+.textCenter { text-align: center; }
+.textJustify { text-align: justify; }
+.blockCenter { display: block; margin-left: auto; margin-right: auto; } /* remember to set width */
+.bold { font-weight: bold; }
+.italic { font-style: italic; }
+.underline { text-decoration: underline; }
+.noindent { margin-left: 0; padding-left: 0; }
+.nomargin { margin: 0; }
+.nopadding { padding: 0; }
+.nobullet { list-style: none; list-style-image: none; }
 
 
 body {
@@ -116,7 +119,11 @@ body {
 	width: 35px;
 	height: auto;
 }
-
+.user-name{
+	color: #484848;
+	font-size: 14px;
+	font-family: 'Varela Round', sans-serif;
+}
 .profile-pic {
 	margin-top: 7px;
 	margin-right: 10px;
@@ -132,7 +139,7 @@ body {
 .addertitle{
 	margin-top: 30px;
     height: 0px;
-    margin-right: 454px;
+    margin-right: 40%;
     text-align: center;
 }
 .addertitle img, h2 {
@@ -161,12 +168,14 @@ body {
 	margin-right: -10px;
 	font-size: 12px;
 	line-height: 0.428571;
-	color: #828080;
 	background-color: #fff;
 	background-image: none;
 	border: 2.5px solid #74E3EC;
 	border-radius: 0px;
 	font-family: 'Varela Round', sans-serif;
+}
+.addText::-webkit-input-placeholder{
+	color: #828080;
 }
 
 .addBtn{
@@ -193,130 +202,43 @@ body {
 	background: #74e3ec;
 	border-color: #74e3ec;
 }
-#date-btn:active #calendar{
-	display: block;
-	float: left;
+
+
+.date{
+	display: inline-block;
+	background-color: #74e3ec;
+	padding-top: 1.5px;
+	margin-right: -2px;
 }
-#calendar, #date{
-	display:none;
+#date {
+	width: 80px;
+	background: #74e3ec;
+	border: none;
+	padding-left: 17px;
+	height: 38px;
+	color: #fff;
+}
+#date::-webkit-input-placeholder{
+ 	color: #fff;
 }
 
-.ui-datepicker-header {
-    background: #EAEAEA;
-    color: #333;
-    font-weight: bold;
-    line-height: 30px;
+.time{
+	display: inline-block;
+	background-color: #74e3ec;
+	padding-top: 1.5px;
+	margin-right: -2px;
 }
-
-.ui-datepicker {
-  display: block;
-  text-align: center;
-  font-family: "Helvetica";
-  color: #666;
-  background: #FAFAFA;
+#time {
+	width: 80px;
+	background: #74e3ec;
+	border: none;
+	padding-left: 17px;
+	height: 38px;
+	color: #fff;
 }
-
-.date-block{
-  text-align: center;
-  background: #D54;
-  font-family: "Helvetica";
-  color: #EEE;
-  font-size: 18pt;
-  padding: 10px;
-
+#time::-webkit-input-placeholder{
+	color: #fff;
 }
-
-.date-day{
-  font-size: 24pt;
-}
-.date-date{
-  font-size: 48pt;
-}
-
-.ui-datepicker-prev, .ui-datepicker-next {
-    display: inline-block;
-    font-family: FontAwesome;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    cursor: pointer;
-    background-color:none;
-    background-repeat: no-repeat;
-    position: relative;
-    color: transparent !important;
-}
-.ui-datepicker-prev {
-    float: left;
-    background-position: center -30px;
-}
-.ui-datepicker-next {
-    float: right;
-    background-position: center 0px;
-}
-
-.ui-datepicker-prev:before {
-  content: "\f053";
-  display: block;
-  color: rgba(0,0,0,.3) !important;
-
-}
-
-.ui-datepicker-next:before {
-  content: "\f054";
-  display: block;
-  color: rgba(0,0,0,.3) !important;
-
-}
-
-.ui-datepicker-year{
-  font-weight: normal;
-}
-
-.ui-datepicker-calendar {
-  border-collapse:collapse;
-  width: 100%;
-  margin-top: 10px;
-  text-align: center;
-  background: #FAFAFA;
-  font-family: "Helvetica";
-}
-.ui-datepicker td a{
-  text-decoration: none;
-}
-.ui-datepicker td a, .ui-datepicker td span{
-  display: block;
-  width: 100%;
-  font-size: 12px;
-  padding: 10px 0;
-  color: #333;
-}
-
-.ui-datepicker td span{
-  color: #BBB;
-}
-
-.ui-datepicker .ui-state-active {
-  background: #EEE;
-}
-.ui-datepicker .ui-state-highlight {
-  background: #FFF;
-  color: #D54;
-}
-
-.ui-datepicker td.past {
-  color:#BBB;
-}
-
-.ui-datepicker a:hover {
-  background: #E65;
-  color: #FFF;
-}
-
-.input {
-background: #FFFFFF;
-border: 3px solid #74E3EC;
-}
-
 
 /* --------------  DISPLAY RIVENT --------------*/
 
@@ -329,20 +251,19 @@ border: 3px solid #74E3EC;
 	padding: 0px;
 }
 
-
 #upcoming{
+	text-decoration: none;
 	margin-left: -75%;
 	color: #000;
 	font-size: 16px;
 	font-family: 'Varela Round', sans-serif;
 }
 #history{
+	margin-left: 8px;
+	text-decoration: none;
 	color: #B7B7B7;
 	font-size: 16px;
 	font-family: 'Varela Round', sans-serif;
-}
-#upcoming #history:active{
-	color: #000;
 }
 
 .rivent-container{
@@ -353,10 +274,42 @@ border: 3px solid #74E3EC;
 }
 
 .rivent-box{
-	margin-top: 12px;
+	text-align: -webkit-auto;
+	margin-top: 35px;
 	height: 50px;
 	display: block;
 	background: #FFFFFF;
 	box-shadow: 0px 2px 13px 0px rgba(214,214,214,0.50);
 	border-radius: 2px;
+}
+
+.rivent-title{
+	display: inline-block;
+	margin-left: 20px;
+	margin-top: 16px;
+	color: #464646;
+	font-size: 16px;
+	font-family: 'Varela Round', sans-serif;
+}
+
+.icon-rivent{
+	width: 14px;
+	height: auto;
+	float: left;
+	margin-left: 20px;
+    margin-top: 13px;
+}
+.icon-rivent-s{
+	width: 16px;
+	height: auto;
+	float: left;
+	margin-left: 17px;
+    margin-top: 13px;
+}
+
+.del-btn{
+	border: none;
+	background: #fff;
+	float: right;
+	font-size: 12px;
 }

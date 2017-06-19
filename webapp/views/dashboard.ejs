@@ -16,6 +16,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 	<!-- Bootstrap Core CSS -->
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-datepicker.css" rel="stylesheet">
+	<link type="text/css" href="/css/bootstrap-timepicker.min.css" />
+
 	<!-- Custom CSS -->
 	<link href="/css/style.css" rel="stylesheet">
 
@@ -42,36 +45,74 @@
 					<h2>ADD RICALL</h2>
 				</div>
 				<div class="row adder">
-					<input type="text" class="addText" placeholder="TITLE">
-					<button class="addBtn" id="date-btn">DATE</button>
-					<div id="calendar">
-						<div id="datepicker"></div>
-						<input id="date" type="text">
-					</div>
-					<button class="addBtn" id="category-btn">CATEGORY</button>
-					<button class="addBtn" id="add-btn"><i class="fa fa-plus" aria-hidden="true"></i></button>
+					<form method="post">
+						<input type="text" class="addText" placeholder="TITLE">
+						<div class="date hide">
+							<input id="date" name="date" placeholder="DATE" type="text" autocomplete="off"/>
+						</div>
+						<div class="timepicker time hide">
+							<input id="time" name="time" type="text" autocomplete="off">
+						</div>
+						<button type='button' class="addBtn" id="date-btn">DATE</button>
+						<button type='button' class="addBtn" id="category-btn">CATEGORY</button>
+						<button type='submit' class="addBtn" id="add-btn"><i class="fa fa-plus" aria-hidden="true"></i></button>
+					</form>
 				</div>
 			</div>
 		</div>
 
 		<div class="displayRivent container-fluid">
 			<div class="rivent-container">
-				<span id="upcoming"> Upcoming </span><span id="history"> History </span>
+				<a href="#" class="target" id="upcoming">Upcoming</a><a href="#" class="target" id="history">History</a>
 					<% for(var i=0; i < rivent.length; i++){ %>
 						<div id="list" class="rivent-box">
-							<i class="fa fa-circle" id="<%=rivent[i].urgency%>"></i>
-							<p id="lst-desc" class="pull-right"><%=rivent[i].title%></p>
-							<p id="lst-time" class="pull-right"><%=rivent[i].ricall_time%></p>
-							<button class="del-btn " id="<%=rivent[i].event_id%>" type="submit">Delete</button>
+							<%if(rivent[i].category_id == '0'){%>
+								<img class="icon-rivent-s" src="/img/icon_med.png"/>
+							<%}
+							else if(rivent[i].category_id == '1'){%>
+								<img class="icon-rivent" src="/img/icon_doctor.png"/>
+							<%}
+							else {%>
+								<img class="icon-rivent-s" src="/img/icon_remind.png"/>
+							<%}%>
+							<div>
+							<h3 class="rivent-title"><%=rivent[i].title%></h3>
+							<button class="del-btn" id="<%=rivent[i].event_id%>" type="submit"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
 						</div>
 					<%}%>
 			</div>
 		</div>
-	</div>
 
+	</div>
+	<!-- Include jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script>
+    $(document).ready(function(){
+		$('#date-btn').on('click', function(){
+			$('#date-btn').addClass('hide');
+			$('.date').removeClass('hide');
+			$('.time').removeClass('hide');
+		});
+        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        date_input.datepicker({
+            format: 'mm/dd/yyyy',
+            container: '.adder',
+            todayHighlight: true,
+            autoclose: true,
+        });
+		$('#time').timepicker();
+    })
+</script>
 	<script src="/js/jquery.min.js"></script>
 	<script src="/js/todo.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/js/bootstrap-timepicker.min.js"></script>
 	<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="399989e7-1d1e-45ae-a62c-cf77e9ac4ee1";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.im/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 

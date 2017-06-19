@@ -40,19 +40,19 @@ $(document).ready(function(){
       });
   });
 
+//Datepicker
+	$("#datepicker").datepicker("show");
+
+// Upcoming and history
+	$('button').on('click', function(){
+	    $('button').removeClass('selected');
+	    $(this).addClass('selected');
+
 });
 
-$(function(){
-        $('#datepicker').datepicker({
 
-            inline: true,
-            showOtherMonths: true,
-            dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-            altField: "#date",
-        });
-});
 
-$(document).ready( function() {
-  $("#datepicker").datepicker("show");
+
+
 
 });

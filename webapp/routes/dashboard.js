@@ -163,8 +163,8 @@ router.delete('/:event_id', ensureAuthenticated, function (req, res){
 });
 
 router.get('/auth', ensureAuthenticated, function(req, res){
-	res.send('OH.. I DON\'T RICALL YOU GAVE US PERMISSION FOR GOOGLE CALENDAR');
-})
+	res.render('googleauth');
+});
 
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){

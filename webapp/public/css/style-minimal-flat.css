@@ -1695,10 +1695,31 @@ footer p {
 #particles-js {
   position: fixed;
   top: 0;
-  left: 30%;
-  width: 70%;
+	left: 10%;
+  width: 90%;
   height: 100%;
 }
+.home {
+	float: left;
+	margin-top: 30px;
+	margin-left: 35px;
+}
+.home a {
+	text-decoration: none;
+	color: white;
+	padding: 8px;
+	margin: 5px;
+	border: solid white 0.5px;
+	border-radius: 4px;
+	box-shadow: 4px 4px 5px rgba(136, 136, 136, 0.52);
+}
+
+.home a:hover {
+	background-color: #FFFFFF;
+	color: #ff3f6f;
+}
+
+
 
 /* ------------------------------------- */
 /* 8. Media Queries .................... */

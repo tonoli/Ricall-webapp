@@ -28,7 +28,7 @@ $(document).ready(function(){
 	});
 
 	$(".del-btn").on('click', function(){
-		var event_id = $(this).attr('id');
+		var event_id = $(".del-btn").attr('id');
 		$.ajax({
 			type: 'DELETE',
 			url: '/dashboard/' + event_id,

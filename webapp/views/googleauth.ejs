@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-        <title>Ricall | 404</title>
+        <title>Ricall | Authorisation</title>
         <meta name="description" content="Ricall is a IoT project to help people to remember things they should not forget">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Madeon08">
@@ -22,53 +22,84 @@
 
         <!-- ============== Resources style ============== -->
         <link rel="stylesheet" href="/css/style-minimal-flat.css" />
+		<style>
 
+		.content{
+			text-align: center;
+		}
+		.center{
+			top: 150px;
+		}
+		</style>
 		<!-- Modernizr runs quickly on page load to detect features -->
 		<script src="/js/modernizr.custom.js"></script>
 	</head>
-
 	<body>
-		<body>
+		<section id="right-side">
+	<div class="login">
+		<ul>
+		<% if(user){%>
+		<li><a href="/dashboard">Dashboard</a></li>
+		<li><a href="/users/logout">Log out</a></li>
+		<%}
+		else{%>
+		<li><a href="/users/register">Register</a></li>
+		<li><a href="/users/login">Log in</a></li>
+		<%}%>
+	</ul>
+	</section>
+			<div class="content">
+				<h2 class="center">OUPS... I don't Ricall you gave access to your Google Calendar</h2>
+				<nav>
+					<ul>
+						<li>
+							<a class="action-btn text-intro opacity-0" href="/">Here we go!</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
 
-			<div id="particles-js"></div>
+		<!-- END - Home/Right Part -->
 
-			<section>
-				<div>
-					<div class="home">
-						<p><a href="/">Home</a></p>
-					</div>
-				</div>
-			</section>
-			<h1 class="error-page unselectable">#ERROR404 <br>
-				 OUPS... I don't ricall that</h1>
 
 				<!-- ///////////////////\\\\\\\\\\\\\\\\\\\ -->
 			    <!-- ********** Resources jQuery ********** -->
 			    <!-- \\\\\\\\\\\\\\\\\\\/////////////////// -->
 
 				<!-- * Libraries jQuery, Easing and Bootstrap - Be careful to not remove them * -->
-				<script src="/js/jquery.min.js"></script>
-				<script src="/js/jquery.easings.min.js"></script>
-				<script src="/js/bootstrap.min.js"></script>
+				<script src="js/jquery.min.js"></script>
+				<script src="js/jquery.easings.min.js"></script>
+				<script src="js/bootstrap.min.js"></script>
+
+				<!-- Accelerated JavaScript animation JS file -->
+				<script src="js/velocity.min.js"></script>
+
+				<!-- Accelerated JavaScript animation UI JS file -->
+				<script src="js/velocity.ui.min.js"></script>
+
+				<!-- Newsletter plugin -->
+				<script src="js/notifyMe.js"></script>
 
 				<!-- Particles effect plugin on the right -->
-				<script src="/js/particles.js"></script>
+				<script src="js/particles.js"></script>
 
 				<!-- Scroll plugin -->
-				<script src="/js/jquery.mousewheel.js"></script>
+				<script src="js/jquery.mousewheel.js"></script>
 
 				<!-- Custom Scrollbar plugin -->
-				<script src="/js/jquery.mCustomScrollbar.js"></script>
+				<script src="js/jquery.mCustomScrollbar.js"></script>
 
+				<!-- Popup Newsletter Form -->
+				<script src="js/classie.js"></script>
+				<script src="js/dialogFx.js"></script>
 
 				<!-- Main JS File -->
-				<script src="/js/main.js"></script>
-				
+				<script src="js/main.js"></script>
+
 				<!-- Crisp tchat -->
 				<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="399989e7-1d1e-45ae-a62c-cf77e9ac4ee1";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.im/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
-
 				<!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
 
-				</body>
+	</body>
 
-			</html>
+</html>

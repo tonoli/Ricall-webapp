@@ -15,7 +15,7 @@ We created our Ricall VUI using CMU Sphynx an open source voice recoginition lib
 
 
 ### The Ricall manager
-<p align="center"> <img src="https://media.giphy.com/media/3o6ozD4FXYQNv5ERjy/giphy.gif"> </p>
+<p align="center"> <img width="400" src="https://media.giphy.com/media/3o6ozD4FXYQNv5ERjy/giphy-downsized.gif"> </p>
 
 Then we created a ricall manager also in C that takes a json file with a certain number of events and optimizes its internal database to be able to retrive the correct information to the user given the day of the week, the hour of the day and other variables we set. Basically it figures out when a certain ricall should be pronounced.
 

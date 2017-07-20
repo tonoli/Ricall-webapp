@@ -1,7 +1,9 @@
 # Ricall.me
 ## Ricall is an intelligent personal assistant for people with neurodegenerative diseases as Alzheimer 
 
-Ricall is an cool project to help people with neurodegenerative diseases to rimember things they often forget. With 3 friends we created an MVP of the project in two weeks. There is three main aspects in what we have built: the VUI, the Ricall manager and the webapp.
+Ricall is an cool project to help people with neurodegenerative diseases to rimember things they often forget. With 3 friends we created an MVP of the project in two weeks at [42 Silicon Valley](https://www.42.us.org/). There is three main aspects in what we have built: the VUI, the Ricall manager and the webapp.
+
+*This project needed to respect a certain number of constraints that justify certain "complex" choices we made to develop the MVP. There is several libraries more powerfull and efficient but the pedagogic aspect was to learn to implement this in C and from sratch*
 
 ### The VUI (voice-user interface)
 <p align="center"> <img src="https://media.giphy.com/media/v1PSPwbLIrata/giphy.gif"> </p>
@@ -13,6 +15,7 @@ We created our Ricall VUI using CMU Sphynx an open source voice recoginition lib
 
 
 ### The Ricall manager
+<p align="center"> <img src="https://media.giphy.com/media/3o6ozD4FXYQNv5ERjy/giphy.gif"> </p>
 
 Then we created a ricall manager also in C that takes a json file with a certain number of events and optimizes its internal database to be able to retrive the correct information to the user given the day of the week, the hour of the day and other variables we set. Basically it figures out when a certain ricall should be pronounced.
 

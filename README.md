@@ -3,10 +3,10 @@
 # Ricall.me
 ### Ricall is an intelligent personal assistant for people with neurodegenerative diseases as Alzheimer 
 
-<p>
 
+<p>
 <img align="left" width="100" src="https://user-images.githubusercontent.com/17257576/28406075-d7e85100-6ce3-11e7-9717-79893659b847.png">
-Ricall is an cool project to help people with neurodegenerative diseases to rimember things they often forget. With 3 friends we created an MVP of the project in two weeks at [42 Silicon Valley](https://www.42.us.org/). There is three main aspects in what we have built: the VUI, the Ricall manager and the webapp. </p>
+Ricall is an cool project to help people with neurodegenerative diseases to rimember things they often forget. With 3 friends we created an MVP of the project in two weeks at <a href="https://www.42.us.org/"> 42 Silicon Valley</a>. There is three main aspects in what we have built: the VUI, the Ricall manager and the webapp.</p>
 
 *This project needed to respect a certain number of constraints that justify certain "complex" choices we made to develop the MVP. There is several libraries more powerfull and efficient but the pedagogic aspect was to learn to implement this in C and from sratch*
 

@@ -11,7 +11,7 @@ Ricall is an cool project to help people with neurodegenerative diseases to rime
 *This project needed to respect a certain number of constraints that justify certain "complex" choices we made to develop the MVP. There is several libraries more powerfull and efficient but the pedagogic aspect was to learn to implement this in C from sratch only using CMU sphinx*
 
 ### The VUI (voice-user interface)
-<img align="left" width="200" src="https://media.giphy.com/media/v1PSPwbLIrata/giphy.gif">
+<img align="right" width="200" src="https://media.giphy.com/media/v1PSPwbLIrata/giphy.gif">
 
 So what's the VUI? 
 > A voice-user interface (VUI) makes human interaction with computers possible through a voice/speech platform in order to initiate an automated service or process.
@@ -20,7 +20,7 @@ We created our Ricall VUI using CMU Sphinx an open source voice recoginition lib
 
 
 ### The Ricall manager
-<img align="left" width="200" src="https://media.giphy.com/media/3o6ozD4FXYQNv5ERjy/giphy-downsized.gif">
+<img align="right" width="200" src="https://media.giphy.com/media/3o6ozD4FXYQNv5ERjy/giphy-downsized.gif">
 
 Then we created a ricall manager also in C that takes a json file with a certain number of events and optimizes its internal database to be able to retrive the correct information to the user given the day of the week, the hour of the day and other variables we set. Basically it figures out when a certain ricall should be pronounced.
 

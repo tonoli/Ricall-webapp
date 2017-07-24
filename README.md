@@ -8,7 +8,7 @@
 Ricall is an cool project to help people with neurodegenerative diseases to rimember things they often forget. With 3 friends we created an MVP of the project in two weeks at <a href="https://www.42.us.org/"> 42 Silicon Valley</a>. There is three main aspects in what we have built: the VUI, the Ricall manager and the webapp. </p>
 
 
-*This project needed to respect a certain number of constraints that justify certain "complex" choices we made to develop the MVP. There is several libraries more powerfull and efficient but the pedagogic aspect was to learn to implement this in C from sratch only using CMU sphinx*
+*This project needed to respect a certain number of constraints that justify certain "complex" choices we made to develop the MVP. There is several libraries more powerfull and efficient but the pedagogic aspect was to learn to implement this in C from scratch only using CMU sphinx*
 
 ### The VUI (voice-user interface)
 <img align="right" width="200" src="https://media.giphy.com/media/v1PSPwbLIrata/giphy.gif">

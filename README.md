@@ -26,9 +26,10 @@ Then we created a ricall manager also in C that takes a json file with a certain
 
 ### The web application
 
-www.ricall.me
 
-For the moment the website is a simple static comming soon page. But I developed an Alpha version of the Node JS web application in less than a week that you can run.
+We developed an MVP of the web application in less than a week using NodeJS, MangoDB and EJS templeting that you can run on your local machine.
+
+The most challenging part of the project was to interact with Google APIs for the Authentification and for the calendar management. 
 
 * Install
 
